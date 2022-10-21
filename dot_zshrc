@@ -1,5 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+function t() {
+  tree -I '.git|node_modules|.DS_Store' --dirsfirst -L ${1:-3} -aC $2
+}
+
 get_release_diff (){
   cd $1
 
@@ -105,7 +110,7 @@ ZSH_THEME="mh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew npm  zsh-autosuggestions z)
+plugins=(git brew npm zsh-autosuggestions z zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,7 +139,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
